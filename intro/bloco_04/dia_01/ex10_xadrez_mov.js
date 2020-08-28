@@ -1,6 +1,6 @@
 let peca;
 
-peca = "chiii";
+peca = "Rei";
 
 if (typeof peca === "string") {
   switch (peca.toLowerCase()) {
@@ -29,4 +29,3 @@ if (typeof peca === "string") {
 } else {
   console.log(peca, "não é uma String!")
 }
-
