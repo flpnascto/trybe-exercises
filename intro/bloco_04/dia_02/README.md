@@ -1,4 +1,4 @@
-#J avaScript - Array e loop For
+# JavaScript - Array e loop For
 
 ### Conteúdo
 * Estrutura de dados **Array**;
