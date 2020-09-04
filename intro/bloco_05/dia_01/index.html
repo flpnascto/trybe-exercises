@@ -68,8 +68,10 @@
 
       // exercício 05
       let sentences = document.getElementsByTagName('p');
-      for (let i = 0 ; i < sentences.length ; i += 1) {
-        document.getElementsByTagName('p')[i].innerText=sentences[i].innerText.toUpperCase();
+      for (let i in sentences) {
+        if (sentences[i].innerText !== undefined) {
+          document.getElementsByTagName('p')[i].innerText=sentences[i].innerText.toUpperCase();
+        }
       }
 
       // exercício 06
