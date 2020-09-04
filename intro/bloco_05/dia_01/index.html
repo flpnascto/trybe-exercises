@@ -69,6 +69,7 @@
       // exercício 05
       let sentences = document.getElementsByTagName('p');
       for (let i in sentences) {
+        console.log(sentences[i].innerHTML) // exercício 06
         document.getElementsByTagName('p')[i].innerText=sentences[i].innerText.toUpperCase();
       }
 
