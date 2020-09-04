@@ -66,6 +66,12 @@
       // exercício 04
       document.getElementsByClassName('title')[0].innerText='Exercício 5.1 - JavaScript'
 
+      // exercício 05
+      let sentences = document.getElementsByTagName('p');
+      for (let i in sentences) {
+        document.getElementsByTagName('p')[i].innerText=sentences[i].innerText.toUpperCase();
+      }
+
 
     </script>
   </body>
