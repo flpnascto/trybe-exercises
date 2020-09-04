@@ -68,11 +68,15 @@
 
       // exercício 05
       let sentences = document.getElementsByTagName('p');
-      for (let i in sentences) {
-        console.log(sentences[i].innerHTML) // exercício 06
+      for (let i = 0 ; i < sentences.length ; i += 1) {
         document.getElementsByTagName('p')[i].innerText=sentences[i].innerText.toUpperCase();
       }
 
+      // exercício 06
+      let paragrafos = document.getElementsByTagName('p');
+      for (let j in paragrafos) {
+        console.log(paragrafos[j].innerText)
+      }
 
     </script>
   </body>
