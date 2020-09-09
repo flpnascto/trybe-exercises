@@ -1,0 +1,12 @@
+let n = 5;
+
+for (let i = 0 ; i < n ; i += 1){
+  let  msg = "";
+  for (let z = n - 1 ; z > i ; z -= 1){
+    msg += " ";
+    }
+  for(let j = 0 ; j <= i ; j += 1){
+    msg += "*";
+  }
+    console.log(msg)
+}
