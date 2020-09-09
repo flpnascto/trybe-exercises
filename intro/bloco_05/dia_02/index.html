@@ -55,8 +55,10 @@
       }
     </style>
   </head>
+  
   <body>
     <script>
+      // PARTE I
       //1 .Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body;
       let titleH1 = document.createElement('h1');
       titleH1.innerText = 'Exercício 5.2 - JavaScript DOM';
@@ -113,6 +115,32 @@
         titleH3.innerHTML = `Sub-título ${j + 1}`
         mainContaintSelector.appendChild(titleH3);
       }
+
+      // PARTE II
+      // Adicione a classe title na tag h1 criada;
+      titleH1.className = 'title';
+      // Adicione a classe description nas 3 tags h3 criadas;
+      let elementH3 = document.getElementsByTagName('h3');
+      for (let element in elementH3) {
+        elementH3[element].className = 'description';
+      }
+
+      // Remova o div criado no passo 5 (aquele que possui a classe left-content). Utilize a função .removeChild();
+      divMainContent.removeChild(divLeftContent);
+
+      // Centralize o div criado no passo 6 (aquele que possui a classe right-content). Dica: para centralizar, basta configurar o margin-right: auto do div;
+      divRightContent.style.marginRight = 'auto';
+
+      // Troque a cor de fundo do elemento pai da div criada no passo 3 (aquela que possui a classe center-content) para a cor verde;
+      divCenterContent.parentNode.style.backgroundColor = 'green'
+
+      // Remova os dois últimos elementos (nove e dez) da lista criada no passo 8.
+      let elementsToRemove = unorderedList.children.length - 2;
+      while (unorderedList.children.length > elementsToRemove) {
+        unorderedList.removeChild(unorderedList.lastChild)
+      }
     </script>
+
   </body>
+
 </html>
