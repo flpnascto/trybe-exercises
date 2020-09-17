@@ -43,6 +43,54 @@ function gerarOptionEstadosElement() {
   }
 }
 
+// verifica se o input text Data Início é uma formato de data válido
+function isDayFormat(value) {
+  let valid = false;
+  if (value > 0 && value <= 31){
+    valid =  true;
+  }
+  return valid;
+}
+
+function isMonthFormat(value) {
+  let valid = false;
+  if (value > 0 && value <= 12){
+    valid =  true;
+  }
+  return valid;
+}
+
+function isYearFormat(value) {
+  let valid = false;
+  if (value > 0){
+    valid =  true;
+  }
+  return valid;
+}
+
+function checkDateFormat() {
+  let check = false;
+  const dataInicioInputText = document.querySelector('#data-inicio');
+  if (dataInicioInputText.value.includes('/')) {
+    let data = dataInicioInputText.value.split('/');
+    console.log(data);
+    if (data[0].length == 2 && isDayFormat(parseInt(data[0]))) {
+      if (data[1].length == 2 && isMonthFormat(parseInt(data[1]))) {
+        if (data[2].length == 4 && isYearFormat(parseInt(data[2]))) {
+          check = true;
+        }
+      }
+    }
+  }
+  if (!check){
+    alert('Formato de data Inválido!')
+    dataInicioInputText.value = '';
+  }
+}
+
 window.onload = function () {
   gerarOptionEstadosElement();
+  
+  const dataInicioInputText = document.querySelector('#data-inicio');
+  dataInicioInputText.addEventListener('change', checkDateFormat);
 }
