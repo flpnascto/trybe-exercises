@@ -26,6 +26,26 @@
     <label for="estados">Estado</label>
     <select id="estados" required='required'></select>
   </fieldset>
+
+  <fieldset>
+    <label for="resumo">Resumo do currículo</label>
+    <textarea
+      id="resumo"
+      required='required'
+      maxlength="1000"
+      rows="10"
+      cols="100"></textarea>
+
+    <label for="cargo">Cargo</label>
+    <input type="text" id="cargo" required='required' maxlength="40">
+
+    <label for="descricao-cargo">Descrição do cargo</label>
+    <input type="text" id="descricao-cargo" required='required' maxlength="500">
+
+    <label for="data-inicio">Data de início</label>
+    <input type="text" id="data-inicio" required='required' maxlength="10" placeholder="dd/mm/aaaa">
+
+  </fieldset>
   
 </body>
 <script src="./script.js"></script>
