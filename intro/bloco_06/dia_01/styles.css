@@ -12,3 +12,7 @@ label {
 legend {
   text-align: center;
 }
+
+input[type="radio"] {
+  display: inline-block;
+}
