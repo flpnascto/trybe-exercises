@@ -82,10 +82,7 @@ function checkDateFormat() {
       }
     }
   }
-  if (!check){
-    alert('Formato de data Inválido!')
-    dataInicioInputText.value = '';
-  }
+  return check;
 }
 
 function checkTextField(value, character) {
@@ -148,25 +145,29 @@ function formValidation() {
   if (!checkRadioButton(document.querySelectorAll('input[name="tipo-residencia"'))) {
     formValidationMensage.push('Selecione o tipo de Residência');
   }
+  if (!checkTextField(document.getElementById('resumo').value, 1000)){
+    formValidationMensage.push('Campo resumo de ser preenchido, máximo 1000 caracteres');
+  }
+  if (!checkTextField(document.getElementById('cargo').value, 40)){
+    formValidationMensage.push('Campo cargo de ser preenchido, máximo 40 caracteres');
+  }
+  if (!checkTextField(document.getElementById('descricao-cargo').value, 500)){
+    formValidationMensage.push('Campo descricao do cargo de ser preenchido, máximo 500 caracteres');
+  }
+  if (!checkDateFormat()) {
+    formValidationMensage.push('Formato de data inválido, utilize o formato dd/mm/aaaa');
+  }
   if (formValidationMensage.length === 0) {
-    console.log('Formulário ok');
   } else {
     const formResultDiv = document.getElementById('form-result');
     for (let index = 0; index < formValidationMensage.length; index += 1) {
       formResultDiv.innerHTML += ('- ' + formValidationMensage[index] + '<br>');
-      // formResultDiv.innerHTML += ;
     }
   }
-  
-  console.log(formValidationMensage);
-
 }
 
 window.onload = function () {
   gerarOptionEstadosElement();
-  
-  const dataInicioInputText = document.getElementById('data-inicio');
-  dataInicioInputText.addEventListener('change', checkDateFormat);
 
   const submitFormButton = document.getElementById('submit-form');
   submitFormButton.addEventListener('click', function(e) {
