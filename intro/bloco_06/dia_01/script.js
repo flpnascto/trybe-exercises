@@ -120,6 +120,43 @@ function checkRadioButton(elements) {
   return check;
 }
 
+function valueRadioButton() {
+  if (document.getElementById('tipo-casa').checked) {
+    return document.getElementById('tipo-casa').value;
+  }
+  if (document.getElementById('tipo-apartamento').checked) {
+    return document.getElementById('tipo-apartamento').value;
+  }
+
+}
+
+function insertForm() {
+  const formResultDiv = document.getElementById('form-result');
+  formResultDiv.innerHTML = '';
+  const dadosPessoaisSection = document.createElement('section');
+  dadosPessoaisSection.className = 'form-section';
+  dadosPessoaisSection.innerHTML += '<h3>Dados Pessoais</h3>';
+  dadosPessoaisSection.innerHTML += '<p>Nome: ' + document.getElementById('nome').value + '.</p>';
+  dadosPessoaisSection.innerHTML += '<p>E-mail: ' + document.getElementById('email').value + '.</p>';
+  dadosPessoaisSection.innerHTML += '<p>CPF: ' + document.getElementById('cpf').value + '.</p>';
+  dadosPessoaisSection.innerHTML += '<p>Endereço: ' + document.getElementById('endereco').value + '.</p>';
+  dadosPessoaisSection.innerHTML += '<p>' + document.getElementById('cidade').value + '/' + document.getElementById('estados').value + '</p>';
+  dadosPessoaisSection.innerHTML += '<p>Tipo de Residência: ' + valueRadioButton() + '.</p>';
+  formResultDiv.appendChild(dadosPessoaisSection);
+  const ultimoEmpregoSection = document.createElement('section');
+  ultimoEmpregoSection.className = 'form-section';
+  ultimoEmpregoSection.innerHTML += '<h3>Último Emprego</h3>';
+  ultimoEmpregoSection.innerHTML += '<p>Resumo: ' + document.getElementById('resumo').value + '.</p>';
+  ultimoEmpregoSection.innerHTML += '<p>Cargo: ' + document.getElementById('cargo').value + '.</p>';
+  ultimoEmpregoSection.innerHTML += '<p>Descrição do cargo: ' + document.getElementById('descricao-cargo').value + '.</p>';
+  ultimoEmpregoSection.innerHTML += '<p>Data de início: ' + document.getElementById('data-inicio').value + '.</p>';
+  formResultDiv.appendChild(ultimoEmpregoSection);
+}
+
+function resetForm() {
+  document.getElementById('form1').reset();
+  document.getElementById('form-result').innerHTML = '';
+}
 
 
 function formValidation() {
@@ -158,6 +195,7 @@ function formValidation() {
     formValidationMensage.push('Formato de data inválido, utilize o formato dd/mm/aaaa');
   }
   if (formValidationMensage.length === 0) {
+    insertForm();
   } else {
     const formResultDiv = document.getElementById('form-result');
     for (let index = 0; index < formValidationMensage.length; index += 1) {
@@ -169,10 +207,13 @@ function formValidation() {
 window.onload = function () {
   gerarOptionEstadosElement();
 
-  const submitFormButton = document.getElementById('submit-form');
-  submitFormButton.addEventListener('click', function(e) {
+  const submitFormInput = document.getElementById('submit-form');
+  submitFormInput.addEventListener('click', function(e) {
     e.preventDefault();
     formValidation();
   });
+
+  const resetFormInput = document.getElementById('reset-form');
+  resetFormInput.addEventListener('click', resetForm);
   
 }
