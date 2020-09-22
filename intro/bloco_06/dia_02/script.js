@@ -190,9 +190,9 @@ function formValidation() {
   if (!checkTextField(document.getElementById('descricao-cargo').value, 500)){
     formValidationMensage.push('Campo descricao do cargo de ser preenchido, máximo 500 caracteres');
   }
-  if (!checkDateFormat()) {
-    formValidationMensage.push('Formato de data inválido, utilize o formato dd/mm/aaaa');
-  }
+  // if (!checkDateFormat()) {
+  //   formValidationMensage.push('Formato de data inválido, utilize o formato dd/mm/aaaa');
+  // }
   if (formValidationMensage.length === 0) {
     insertForm();
   } else {
@@ -212,17 +212,42 @@ window.onload = function () {
 
   const resetFormInput = document.getElementById('reset-form');
   resetFormInput.addEventListener('click', resetForm);  
+
+  // var field = document.getElementById('data-inicio');
+  // var picker = new Pikaday({
+  //     onSelect: function(date) {
+  //         field.value = picker.toString();
+  //     }
+  // });
+  // field.parentNode.insertBefore(picker.el, field.nextSibling);
+
+  
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   gerarOptionEstadosElement();
   var elems = document.querySelectorAll('select');
-  console.log(elems);
   var instances = M.FormSelect.init(elems);
-  console.log(instances);
 });
 
 document.addEventListener('DOMContentLoaded', function () {
   var resumoTextarea = document.querySelectorAll('#resumo, #descricao-cargo');
   M.CharacterCounter.init(resumoTextarea);
 });
+
+// const dataInicioInputText = document.querySelector('#data-inicio');
+// dataInicioInputText.className = 'browser-default';
+
+//   dataInicioInputText.DatePickerX.init({
+//     mondayFirst: true,
+//     format: 'dd/mm/yyyy'
+//   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, {
+      format: 'dd/mm/yyyy'
+
+    });
+  });
