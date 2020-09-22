@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bibliotecas JavaScript e Frameworks CSS</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <form action="./form.html" id="form1">
+          <h3>Dados Pessoais</h3>
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" id="nome" maxlength="40" class="validate">
+              <label for="nome">Nome</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="email" id="email" maxlength="50" class="validate">
+              <label for="email">E-mail</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <input type="text" id="cpf" maxlength="11" class="validate">
+              <label for="cpf">CPF</label>
+            </div>
+            <div class="col s2"></div>
+            <div class="input-field col s6">
+              <input type="text" id="cidade" maxlength="28" class="validate">
+              <label for="cidade">Cidade</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="endereco" maxlength="200" class="validate">
+              <label for="endereco">Endereço</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <select id="estados">
+                <option value="" disabled selected>Selecione</option>
+              </select>
+              <label>Estado</label>
+            </div>
+            <div class="input-field col s4">
+              <h6 class="right-align">Tipo de Residência</h6>
+            </div>
+            <div class="input-field col s2">
+              <label>
+                <input type="radio" id="tipo-casa" name="tipo-residencia" value="casa">
+                <span>Casa</span>
+              </label>
+            </div>
+            <div class="input-field col s2">
+              <label>
+                <input type="radio" id="tipo-apartamento" name="tipo-residencia" value="apartamento">
+                <span>Apartamento</span>
+              </label>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <h3>Último Emprego</h3>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="resumo" class="materialize-textarea" data-length="1000"></textarea>
+              <label for="resumo">Resumo do currículo</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s8">
+              <input type="text" id="cargo" maxlength="40">
+              <label for="cargo">Cargo</label>              
+            </div>
+            <div class="input-field col s4">
+              <input type="text" id="data-inicio" maxlength="10" placeholder="dd/mm/aaaa">
+              <label for="data-inicio">Data de início</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="descricao-cargo" data-length="500">
+              <label for="descricao-cargo">Descrição do cargo</label>              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s2">
+              <button class="btn waves-effect waves-light" type="reset" id="reset-form">Reiniciar</button>
+            </div>
+            <div class="col s3">
+              <button class="btn waves-effect waves-light" type="submit" id="submit-form">Imprimir
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div> 
+    <div class="divider"></div>
+    <div class="row">
+      <div class="col s12">
+        <div id="form-result"></div>    
+      </div>
+    </div>
+  </div>
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+<script src="./script.js"></script>
+</html>
