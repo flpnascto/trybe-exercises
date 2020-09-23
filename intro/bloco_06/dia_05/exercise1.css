@@ -41,3 +41,17 @@ figure {
     flex-basis: 45%;
   }
 }
+
+@media screen and (min-width: 1064px) {
+  body {
+    background: #555;
+    font-size: large;
+    max-width: 1366px;
+  }
+  section {
+    justify-content: space-between;
+  }
+  section figure {
+    flex-basis: auto;
+  }
+}
