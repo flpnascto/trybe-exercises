@@ -1,15 +1,19 @@
 body {
-
+  font-size: large;
+  margin: 20px;
 }
+
 h1 {
-
+  font-size: xx-large;
 }
+
 h2 {
 
 }
 
 img {
     max-width: 100%;
+    padding: 15px;
 }
 
 figure {
