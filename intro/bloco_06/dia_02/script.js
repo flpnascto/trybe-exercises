@@ -217,12 +217,17 @@ window.onload = function () {
 document.addEventListener('DOMContentLoaded', function() {
   gerarOptionEstadosElement();
   var elems = document.querySelectorAll('select');
-  console.log(elems);
-  var instances = M.FormSelect.init(elems);
-  console.log(instances);
+  M.FormSelect.init(elems);
 });
 
 document.addEventListener('DOMContentLoaded', function () {
   var resumoTextarea = document.querySelectorAll('#resumo, #descricao-cargo');
   M.CharacterCounter.init(resumoTextarea);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.datepicker');
+  M.Datepicker.init(elems, {
+    format: 'dd/mm/yyyy'
+  });
 });
