@@ -14,38 +14,38 @@
   <div class="container">
     <div class="row">
       <div class="col s12">
-        <form action="./form.html" id="form1">
+        <form action="./form.html" id="form1" class="js-form">
           <h3>Dados Pessoais</h3>
           <div class="row">
             <div class="input-field col s6">
-              <input type="text" id="nome" maxlength="40" class="validate">
+              <input type="text" id="nome" class="validate" data-validate-field="name">
               <label for="nome">Nome</label>
             </div>
             <div class="input-field col s6">
-              <input type="email" id="email" maxlength="50" class="validate">
+              <input type="email" id="email" class="validate" data-validate-field="email">
               <label for="email">E-mail</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s4">
-              <input type="text" id="cpf" maxlength="11" class="validate">
+              <input type="text" id="cpf" class="validate" data-validate-field="cpf">
               <label for="cpf">CPF</label>
             </div>
             <div class="col s2"></div>
             <div class="input-field col s6">
-              <input type="text" id="cidade" maxlength="28" class="validate">
+              <input type="text" id="cidade" class="validate" data-validate-field="cidade">
               <label for="cidade">Cidade</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" id="endereco" maxlength="200" class="validate">
+              <input type="text" id="endereco" class="validate" data-validate-field="endereco">
               <label for="endereco">Endereço</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s4">
-              <select id="estados">
+              <select id="estados" data-validate-field="estados">
                 <option value="" disabled selected>Selecione</option>
               </select>
               <label>Estado</label>
@@ -55,13 +55,13 @@
             </div>
             <div class="input-field col s2">
               <label>
-                <input type="radio" id="tipo-casa" name="tipo-residencia" value="casa">
+                <input type="radio" id="tipo-casa" name="tipo-residencia" value="casa" data-validate-field="tipo_residencia">
                 <span>Casa</span>
               </label>
             </div>
             <div class="input-field col s2">
               <label>
-                <input type="radio" id="tipo-apartamento" name="tipo-residencia" value="apartamento">
+                <input type="radio" id="tipo-apartamento" name="tipo-residencia" value="apartamento" data-validate-field="tipo_residencia">
                 <span>Apartamento</span>
               </label>
             </div>
@@ -70,23 +70,23 @@
           <h3>Último Emprego</h3>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="resumo" class="materialize-textarea" data-length="1000"></textarea>
+              <textarea id="resumo" class="materialize-textarea" data-length="1000" data-validate-field="resumo"></textarea>
               <label for="resumo">Resumo do currículo</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s8">
-              <input type="text" id="cargo" maxlength="40">
+              <input type="text" id="cargo" data-validate-field="cargo">
               <label for="cargo">Cargo</label>              
             </div>
             <div class="input-field col s4">
-              <input type="text" id="data-inicio" class="datepicker">
+              <input type="text" id="data-inicio" class="datepicker" data-validate-field="data_inicio">
               <label for="data-inicio">Data de início</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input type="text" id="descricao-cargo" data-length="500">
+              <input type="text" id="descricao-cargo" data-length="500" data-validate-field="descricao_cargo">
               <label for="descricao-cargo">Descrição do cargo</label>              
             </div>
           </div>
@@ -114,6 +114,7 @@
 
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="/node_modules/just-validate/dist/js/just-validate.min.js"></script>
+  <script src="/script.js"></script>
 </body>
-<script src="./script.js"></script>
 </html>
