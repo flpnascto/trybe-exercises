@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Walk</title>
+</head>
+<body>
+
+  <img style="position:absolute;" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+  
+
+  <script>
+
+    let distance = window.innerWidth;
+    let imageReference = document.getElementsByTagName('img')[0];
+    imageReference.style.left = '0px';
+  //  let position = 0;
+
+    // Main excercise
+    /* var walkingCat = setInterval(catWalk, 50);
+    
+    function catWalk() {
+      position = parseInt(imageReference.style.left);
+      if (position > distance) {
+        clearInterval(walkingCat);
+      } else {
+        imageReference.style.left = (parseInt(imageReference.style.left) + 10) + 'px';
+      }
+    } */
+
+    // Bonus 1 exercise
+    /* window.setInterval(catWalk, 50);
+    function catWalk() {
+      position = parseInt(imageReference.style.left)
+      if (position > distance) {
+        imageReference.style.left = '0px';
+      } else {
+        imageReference.style.left = (parseInt(imageReference.style.left) + 10) + 'px';
+      }
+    } */
+    // Bonus 2 exercise
+    window.setInterval(catWalk, 50);
+    let walkBack = false;
+    function catWalk() {
+      position = parseInt(imageReference.style.left)
+      if (walkBack) {
+        imageReference.style.left = (parseInt(imageReference.style.left) - 10) + 'px';
+      } else {
+        imageReference.style.left = (parseInt(imageReference.style.left) + 10) + 'px';
+      }
+      if (position > distance && !walkBack) {
+        walkBack = true;
+      }
+      if (position < 0) {
+        walkBack = false;       
+      }
+    }
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
