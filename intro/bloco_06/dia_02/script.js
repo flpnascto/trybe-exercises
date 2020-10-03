@@ -43,83 +43,6 @@ function gerarOptionEstadosElement() {
   }
 }
 
-// verifica se o input text Data Início é uma formato de data válido
-function isDayFormat(value) {
-  let valid = false;
-  if (value > 0 && value <= 31){
-    valid =  true;
-  }
-  return valid;
-}
-
-function isMonthFormat(value) {
-  let valid = false;
-  if (value > 0 && value <= 12){
-    valid =  true;
-  }
-  return valid;
-}
-
-function isYearFormat(value) {
-  let valid = false;
-  if (value > 0){
-    valid =  true;
-  }
-  return valid;
-}
-
-function checkDateFormat() {
-  let check = false;
-  const dataInicioInputText = document.querySelector('#data-inicio');
-  if (dataInicioInputText.value.includes('/')) {
-    let data = dataInicioInputText.value.split('/');
-    console.log(data);
-    if (data[0].length == 2 && isDayFormat(parseInt(data[0]))) {
-      if (data[1].length == 2 && isMonthFormat(parseInt(data[1]))) {
-        if (data[2].length == 4 && isYearFormat(parseInt(data[2]))) {
-          check = true;
-        }
-      }
-    }
-  }
-  return check;
-}
-
-function checkTextField(value, character) {
-  let check = false;
-  if (value !== '' && value.length <= character){
-    check = true;
-  }
-  return check;
-}
-
-function checkEmailField(value, character) {
-  let check = false;
-  if (value !== '' && value.length <= character && value.includes('@')){
-    check = true;
-  }
-  return check;
-}
-
-function checkTextField(value) {
-  let check = false;
-  if (value !== ''){
-    check = true;
-  }
-  return check;
-}
-
-function checkRadioButton(elements) {
-  let check = false;
-  for (let element = 0; element < elements.length; element += 1) {
-    if (elements[element].checked) {
-      check = true;
-      break;
-    }
-  }
-  return check;
-}
-
 function valueRadioButton() {
   if (document.getElementById('tipo-casa').checked) {
     return document.getElementById('tipo-casa').value;
@@ -157,78 +80,15 @@ function resetForm() {
   document.getElementById('form-result').innerHTML = '';
 }
 
-
-function formValidation() {
-  let formValidationMensage = []
-  if (!checkTextField(document.getElementById('nome').value, 40)){
-    formValidationMensage.push('Campo nome de ser preenchido, máximo 40 caracteres');
-  }
-  if (!checkEmailField(document.getElementById('email').value, 50)){
-    formValidationMensage.push('Campo e-mail de ser preenchido, máximo 50 caracteres');
-  }
-  if (!checkTextField(document.getElementById('cpf').value, 11)){
-    formValidationMensage.push('Campo CPF de ser preenchido, máximo 11 caracteres');
-  }
-  if (!checkTextField(document.getElementById('endereco').value, 200)){
-    formValidationMensage.push('Campo endereço de ser preenchido, máximo 200 caracteres');
-  }
-  if (!checkTextField(document.getElementById('cidade').value, 200)){
-    formValidationMensage.push('Campo cidade de ser preenchido, máximo 28 caracteres');
-  }
-  if (!checkTextField(document.getElementById('estados').value, 200)){
-    formValidationMensage.push('Campo estados de ser preenchido');
-  }
-  if (!checkRadioButton(document.querySelectorAll('input[name="tipo-residencia"'))) {
-    formValidationMensage.push('Selecione o tipo de Residência');
-  }
-  if (!checkTextField(document.getElementById('resumo').value, 1000)){
-    formValidationMensage.push('Campo resumo de ser preenchido, máximo 1000 caracteres');
-  }
-  if (!checkTextField(document.getElementById('cargo').value, 40)){
-    formValidationMensage.push('Campo cargo de ser preenchido, máximo 40 caracteres');
-  }
-  if (!checkTextField(document.getElementById('descricao-cargo').value, 500)){
-    formValidationMensage.push('Campo descricao do cargo de ser preenchido, máximo 500 caracteres');
-  }
-  // if (!checkDateFormat()) {
-  //   formValidationMensage.push('Formato de data inválido, utilize o formato dd/mm/aaaa');
-  // }
-  if (formValidationMensage.length === 0) {
-    insertForm();
-  } else {
-    const formResultDiv = document.getElementById('form-result');
-    for (let index = 0; index < formValidationMensage.length; index += 1) {
-      formResultDiv.innerHTML += ('- ' + formValidationMensage[index] + '<br>');
-    }
-  }
-}
-
 window.onload = function () {
-  const submitFormInput = document.getElementById('submit-form');
-  submitFormInput.addEventListener('click', function(e) {
-    e.preventDefault();
-    formValidation();
-  });
-
   const resetFormInput = document.getElementById('reset-form');
   resetFormInput.addEventListener('click', resetForm);  
-
-  // var field = document.getElementById('data-inicio');
-  // var picker = new Pikaday({
-  //     onSelect: function(date) {
-  //         field.value = picker.toString();
-  //     }
-  // });
-  // field.parentNode.insertBefore(picker.el, field.nextSibling);
-
-  
-
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   gerarOptionEstadosElement();
   var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems);
+  M.FormSelect.init(elems);
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -236,18 +96,119 @@ document.addEventListener('DOMContentLoaded', function () {
   M.CharacterCounter.init(resumoTextarea);
 });
 
-// const dataInicioInputText = document.querySelector('#data-inicio');
-// dataInicioInputText.className = 'browser-default';
-
-//   dataInicioInputText.DatePickerX.init({
-//     mondayFirst: true,
-//     format: 'dd/mm/yyyy'
-//   });
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, {
-      format: 'dd/mm/yyyy'
-
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.datepicker');
+  M.Datepicker.init(elems, {
+    format: 'dd/mm/yyyy'
   });
+});
+
+// Biblioteca para valização do formulário
+new JustValidate('.js-form', {
+  rules: {
+    name: {
+      required: true,
+      maxLength: 40,
+    },
+    email: {
+      required: true,
+      email: true,
+      maxLength: 50,
+    },
+    cpf: {
+      required: true,
+      maxLength: 11,
+      minLenght: 11,
+      strength: {
+        custom: '^[0-9]*$'
+      }
+    },
+    cidade: {
+      required: true,
+      maxLength: 28,
+    },
+    endereco: {
+      required: true,
+      maxLength: 200,
+    },
+    estados: {
+      required: true,
+    },
+    tipo_residencia: {
+      required: true,
+    },
+    resumo: {
+      required: true,
+      maxLength: 1000,
+    },
+    cargo: {
+      required: true,
+      maxLength: 40,
+    },
+    data_inicio: {
+      required: true,
+    },
+    descricao_cargo: {
+      required: true,
+      maxLength: 1000,
+    },
+  },
+  messages: {
+    name: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+    email: {
+      required: 'Campo obrigatório',
+      email: 'E-mail inválido',
+      maxLength: 'Máximo :value caracteres',
+    },
+    cpf: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+      minLength: 'Minimo :value caracteres',
+      strength: 'Somente números',
+    },
+    cidade: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+    cidade: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+    endereco: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+    estados: {
+      required: 'Campo obrigatório',
+    },
+    tipo_residencia: {
+      required: 'Campo obrigatório',
+    },
+    resumo: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+
+    cargo: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+    data_inicio: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+    descricao_cargo: {
+      required: 'Campo obrigatório',
+      maxLength: 'Máximo :value caracteres',
+    },
+  },
+  submitHandler: function (form, values, ajax) {
+    insertForm();
+  },
+  invalidFormCallback: function (errors) {
+    console.log(errors);
+  },
+});
