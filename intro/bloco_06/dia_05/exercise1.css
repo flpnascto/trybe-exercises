@@ -1,0 +1,57 @@
+body {
+  font-size: large;
+  margin: 20px;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+img {
+    max-width: 100%;
+}
+
+figure {
+    margin: 0;
+    padding: 10px;
+}
+
+@media screen and (min-width: 522px) {
+  body {
+    background: #AAA;
+    font-size: medium;
+    margin: 30px;
+  }
+  h1 {
+    font-size: x-large;
+    text-align: center;
+  }
+  h2 {
+    font-size: large;
+  }
+  section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  section figure {
+    flex-basis: 45%;
+  }
+}
+
+@media screen and (min-width: 1064px) {
+  body {
+    background: #555;
+    font-size: large;
+    max-width: 1366px;
+  }
+  section {
+    justify-content: space-between;
+  }
+  section figure {
+    flex-basis: auto;
+  }
+}
