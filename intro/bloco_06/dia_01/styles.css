@@ -1,0 +1,18 @@
+fieldset, input, select, textarea {
+  display: block;
+  width: auto;
+  margin: 0 5px 10px 5px;
+}
+
+label {
+  margin-left: 5px;
+  font-style: italic;
+}
+
+legend {
+  text-align: center;
+}
+
+input[type="radio"] {
+  display: inline-block;
+}
