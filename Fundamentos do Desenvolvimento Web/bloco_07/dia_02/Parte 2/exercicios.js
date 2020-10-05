@@ -38,3 +38,7 @@ function objectLength(object) {
 function viewValues(object) {
   return Object.values(object);
 }
+
+// exercício 05 - Objeto que contém outros objetos.
+let allLessons = Object.assign({}, {lesson1, lesson2, lesson3});
+console.log(allLessons);
