@@ -19,8 +19,13 @@ const lesson3 = {
 };
 
 // exercicio 01 - Função que adiciona chave e valor a um objeto.
-
 function addTurn(objectToChange, newKey, keyValue) {
   objectToChange[newKey] = keyValue;
   return objectToChange;
 }
+
+// exericio 02 - Função que lista as keys de um objeto.
+function viewKeys(object) {
+  return Object.keys(object)
+}
+
