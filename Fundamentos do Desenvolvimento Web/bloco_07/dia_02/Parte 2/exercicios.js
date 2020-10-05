@@ -26,6 +26,10 @@ function addTurn(objectToChange, newKey, keyValue) {
 
 // exericio 02 - Função que lista as keys de um objeto.
 function viewKeys(object) {
-  return Object.keys(object)
+  return Object.keys(object);
 }
 
+// exercicio 03 - Função que mostra o tamanho de um objeto.
+function objectLength(object) {
+  return Object.keys(object).length;
+}
