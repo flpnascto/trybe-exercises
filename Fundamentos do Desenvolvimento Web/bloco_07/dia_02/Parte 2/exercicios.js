@@ -18,18 +18,23 @@ const lesson3 = {
   turno: 'noite',
 };
 
-// exercicio 01 - Função que adiciona chave e valor a um objeto.
+// exercício 01 - Função que adiciona chave e valor a um objeto.
 function addTurn(objectToChange, newKey, keyValue) {
   objectToChange[newKey] = keyValue;
   return objectToChange;
 }
 
-// exericio 02 - Função que lista as keys de um objeto.
+// exercício 02 - Função que lista as keys de um objeto.
 function viewKeys(object) {
   return Object.keys(object);
 }
 
-// exercicio 03 - Função que mostra o tamanho de um objeto.
+// exercício 03 - Função que mostra o tamanho de um objeto.
 function objectLength(object) {
   return Object.keys(object).length;
+}
+
+// exercício 04 - Função que lista os valores de um objeto.
+function viewValues(object) {
+  return Object.values(object);
 }
