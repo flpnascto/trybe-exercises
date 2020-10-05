@@ -55,3 +55,22 @@ function studentTotal(object) {
   return total
 }
 console.log(studentTotal(allLessons))
+
+// exercício 07 - Função que retorna o valor da chave de acordo com a sua posição no objeto.
+const getValueByNumber = (object, position) => Object.values(object)[position];
+console.log(getValueByNumber(lesson1, 0));
+
+// exercício 08 - 
+function verifyPair(object, key, value) {
+  const pares = Object.entries(object)
+  for (let index in pares) {
+    if (pares[index][0] === key && pares[index][1] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+console.log(verifyPair(lesson3, 'turno', 'noite'));
+// Output: true,
+console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
+// Output: false
