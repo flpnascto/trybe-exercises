@@ -41,4 +41,17 @@ function viewValues(object) {
 
 // exercício 05 - Objeto que contém outros objetos.
 let allLessons = Object.assign({}, {lesson1, lesson2, lesson3});
-console.log(allLessons);
+// console.log(allLessons);
+
+// exercício 06 - Função que retorna o total de estudantes.
+function studentTotal(object) {
+  let total = 0;
+  for (let i = 0; i < objectLength(object); i += 1) {
+    for (let j = 0; j < Object.keys(object)[i].length; j += 1)
+    if (Object.keys(Object.values(allLessons)[i])[j] === 'numeroEstudantes') {
+      total += Object.values(Object.values(allLessons)[i])[j];
+    }
+  }
+  return total
+}
+console.log(studentTotal(allLessons))
