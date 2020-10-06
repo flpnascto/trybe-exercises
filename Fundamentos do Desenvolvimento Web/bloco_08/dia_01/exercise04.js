@@ -7,7 +7,7 @@ const books = [
     genre: 'Fantasia',
     author: {
       name: 'George R. R. Martin',
-      birthYear: 1948
+      birthYear: 1948,
     },
     releaseYear: 1991,
   },
@@ -47,7 +47,7 @@ const books = [
     genre: 'Terror',
     author: {
       name: 'Stephen King',
-      birthYear: 1947
+      birthYear: 1947,
     },
     releaseYear: 1986,
   },
@@ -69,57 +69,54 @@ const expected_result = [
     name: 'As Crônicas de Gelo e Fogo',
     genre: 'Fantasia',
     author: { name: 'George R. R. Martin', birthYear: 1948 },
-    releaseYear: 1991
+    releaseYear: 1991,
   },
   {
     id: 5,
     name: 'A Coisa',
     genre: 'Terror',
     author: { name: 'Stephen King', birthYear: 1947 },
-    releaseYear: 1986
+    releaseYear: 1986,
   },
   {
     id: 4,
     name: 'Duna',
     genre: 'Ficção Científica',
     author: { name: 'Frank Herbert', birthYear: 1920 },
-    releaseYear: 1965
+    releaseYear: 1965,
   },
   {
     id: 2,
     name: 'O Senhor dos Anéis',
     genre: 'Fantasia',
     author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
-    releaseYear: 1954
+    releaseYear: 1954,
   },
   {
     id: 3,
     name: 'Fundação',
     genre: 'Ficção Científica',
     author: { name: 'Isaac Asimov', birthYear: 1920 },
-    releaseYear: 1951
+    releaseYear: 1951,
   },
   {
     id: 6,
     name: 'O Chamado de Cthulhu',
     genre: 'Terror',
     author: { name: 'H. P. Lovecraft', birthYear: 1890 },
-    releaseYear: 1928
-  }
-] ;
+    releaseYear: 1928,
+  },
+];
 
 function booksOrderedByReleaseYearDesc() {
   let years = [];
-  books.forEach((element) => years.push(element.releaseYear))
-  years.sort((a, b) => a - b)
+  books.forEach((element) => years.push(element.releaseYear));
+  years.sort((a, b) => b - a);
 
-  let orderedBooks = {};
-  years.forEach((element, index) => orderedBooks[index] = Object.assign({}, books.find((book) => book.releaseYear === element)))
-  
+  let orderedBooks = [];
+  years.forEach((element) => orderedBooks.push(books.find((book) => book.releaseYear === element)));
 
-  // const orderBooks = books.releaseYear.sort();
-  return orderedBooks
+  return orderedBooks;
 }
 
-console.log(booksOrderedByReleaseYearDesc())
-// assert.deepStrictEqual(booksOrderedByReleaseYearDesc(), expected_result);
+assert.deepStrictEqual(booksOrderedByReleaseYearDesc(), expected_result);
