@@ -63,15 +63,15 @@ const books = [
   },
 ];
 
-// Crie uma string com os nomes de todas as pessoas autoras.
+const expected_result = 43;
 
-function allNames() {
-  return `${books
-    .reduce((authotNames, currentBook) => (authotNames += ` ${currentBook.author.name},`), 'Nomes:')
-    .slice(0, -1)}.`;
+// Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
+
+function averageAge() {
+  return (
+    books.reduce((accAges, curAge) => accAges + (curAge.releaseYear - curAge.author.birthYear), 0) /
+    books.length
+  );
 }
 
-assert.deepStrictEqual(
-  allNames(),
-  'Nomes: George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.'
-);
+assert.strictEqual(averageAge(), expected_result);
