@@ -4,21 +4,22 @@ const Animals = [
   { name: 'Preguiça', age: 5, type: 'Cat' },
 ];
 
-const findAnimalsByType = (type) => (
+const findAnimalByName = (name) => (
   new Promise((resolve, reject) => {
     setTimeout(() => {
-      const arrayAnimals = Animals.filter((animal) => animal.type === type);
-      if (arrayAnimals.length !== 0) {
-        return resolve(arrayAnimals);
+      const foundAnimal = Animals.find((animal) => animal.name === name);
+      if (foundAnimal) {
+        return resolve(foundAnimal);
       }
 
-      return reject({ error: 'Não possui esse tipo de animal.' });
-    }, 100);
+      return reject('Nenhum animal com esse nome!');
+    }, 3000);
   })
 );
 
-const getListAnimals = (type) => (
-  findAnimalsByType(type).then(list => list)
-);
+const getAnimal = (name) => {
+  // Adicione o código aqui.
+  return findAnimalByName(name);
+}
 
-module.exports = getListAnimals;
+module.exports = getAnimal;
