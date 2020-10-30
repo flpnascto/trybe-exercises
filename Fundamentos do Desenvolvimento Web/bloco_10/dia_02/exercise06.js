@@ -13,7 +13,7 @@ const findAnimalByName = (name) => (
       }
 
       return reject('Nenhum animal com esse nome!');
-    }, 3000);
+    }, 100);
   })
 );
 
@@ -22,4 +22,20 @@ const getAnimal = (name) => {
   return findAnimalByName(name);
 }
 
-module.exports = getAnimal;
+const getAnimalsAges = (age) => (
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const ages = Animals.filter((animal) => animal.age === age)
+      if (ages.length !== 0) {
+        return resolve(ages);
+      }
+
+      return reject('Nenhum animal encontrado')
+    }, 100)
+  })
+)
+
+module.exports = {
+  getAnimal,
+  getAnimalsAges,
+}

@@ -1,4 +1,4 @@
-const getAnimal = require('./exercise06')
+const { getAnimal, getAnimalsAges } = require('./exercise06')
 
 describe('Testando promise - findAnimalByName', () => {
   describe('Quando existe o animal com o nome procurado', () => {
@@ -18,4 +18,22 @@ describe('Testando promise - findAnimalByName', () => {
       );
     });
   });
+});
+
+describe('Testando promise - getAnimalsAges', () => {
+  
+  test('Se existir retorne o objeto dos animais e idades', async () => {
+    expect.assertions(1);
+    await getAnimalsAges(1).then(result => {
+      expect(result).toEqual([
+        { name: 'Dorminhoco', age: 1, type: 'Dog' },
+      ]);
+    });
+  });
+  test('Se não encontrado',  async () => {
+    expect.assertions(1);
+    await getAnimalsAges(10).catch(error =>
+      expect(error).toEqual('Nenhum animal encontrado')
+    );
+  })
 });
