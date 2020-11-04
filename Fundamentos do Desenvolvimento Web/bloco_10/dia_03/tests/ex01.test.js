@@ -8,13 +8,22 @@ describe('Testando a função randomNumbers', () => {
     expect(randomNumbers).toHaveBeenCalled();
     expect(randomNumbers).toHaveBeenCalledTimes(1);
     expect(randomNumbers()).toBe(10);
+    expect(randomNumbers).to
   });
 
   test('E o seu retorno com os respectivos parâmentros foram passados', () => {
-    randomNumbers = jest.fn().mockImplementationOnce((a, b) => a / b);
+    randomNumbers = jest.mockImplementation((a, b) => a / b);
 
     expect(randomNumbers(8, 4)).toBe(2);
     expect(randomNumbers).toHaveBeenCalledWith(8, 4);
+  })
+
+  test('E o seu retorno com os respectivos parâmentros foram passados', () => {
+    randomNumbers = jest.fn().mockImplementation((a, b, c) => a * b * c);
+
+    expect(randomNumbers(2, 4, 8)).toBe(64);
+    expect(randomNumbers).toHaveBeenCalledWith(2, 4, 8);
+    expect(randomNumbers).toHaveBeenCalledTimes(1);
   })
 })
 
