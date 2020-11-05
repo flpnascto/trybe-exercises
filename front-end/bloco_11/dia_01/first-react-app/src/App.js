@@ -13,7 +13,7 @@ const listAppointments = [
 function App() {
   return (
     <div>
-      { listAppointments.map(item => task(item)) }
+      { listAppointments.map((item, index) => task(item, index)) }
     </div>
   );
 }

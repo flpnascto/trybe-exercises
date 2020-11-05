@@ -1,7 +1,7 @@
-const task = (value) => {
+const task = (value, key) => {
   return (
-    <li>{value}</li>
-  );
+    <li key={key.toString()}>{value}</li>
+  ); 
 }
 
 export default task;
