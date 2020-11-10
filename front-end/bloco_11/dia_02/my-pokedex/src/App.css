@@ -12,6 +12,11 @@
   display: flex;
   flex-wrap: wrap;
 }
+/* MDN web docs - Mastering Wrapping of Flex Items */
+.pokedex>* {
+  flex: 1 1;
+}
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items */
 
 .pokemon-card {
   background-color: lightgray;
