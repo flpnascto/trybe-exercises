@@ -7,3 +7,48 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+
+.pokedex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemon-card {
+  background-color: lightgray;
+  border: 2px solid darkgrey;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  padding: 10px;
+  min-width: 100vh;
+}
+
+.card-section{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.card-asside {
+  flex-grow: 2;
+}
+
+.poke-name {
+  font-size: x-large;
+  padding-bottom: 5px;
+}
+
+.poke-type {
+  font-style: italic;
+  padding-bottom: 3px;
+}
+
+.poke-weight {
+  font-size: small;
+}
+
+.poke-img {
+  margin: 5px;
+}
