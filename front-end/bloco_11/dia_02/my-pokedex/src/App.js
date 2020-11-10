@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Pokedex from './components/Pokedex';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Pokedex</h1>
       </header>
+      <Pokedex />
     </div>
   );
 }
