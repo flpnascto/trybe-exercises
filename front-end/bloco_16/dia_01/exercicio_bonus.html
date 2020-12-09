@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <title>Redux basic example</title>
+        <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    </head>
+    <body>
+      <div>
+        Clicked: <span id="value">0</span> times
+        <input type="number" id="value-increment"/>
+        <button id="increment">+</button>
+        <input type="number" id="value-decrement"/>
+        <button id="decrement">-</button>
+        <button id="multi">Incrementa 10</button>
+      </div>
+      <script>
+
+        const INCREMENT = 'INCREMENT';
+        const DECREMENT = 'DECREMENT';
+        const counter = 1;
+
+        const initialState = {
+          atualValue: 0,
+          clickCount: 0,
+          valueArray: [],
+        }
+
+        function counterReducer(state = initialState, action) {
+          console.log(state)
+          switch (action.type) {
+            case INCREMENT:
+              return Object.assign({}, state, {
+                atualValue: state.atualValue + action.value,
+                clickCount: state.clickCount + action.counter,
+                valueArray: [...state.valueArray, action.value],
+              });
+              
+            case DECREMENT:
+            return Object.assign({}, state, {
+                atualValue: state.atualValue - action.value,
+                clickCount: state.clickCount + action.counter,
+                valueArray: [...state.valueArray, action.value],
+              });
+            default:
+              return state;
+          }
+        }
+
+        const store = Redux.createStore(counterReducer);
+
+        document.getElementById('increment')
+          .addEventListener('click', () => {
+            const value = parseInt(document.getElementById('value-increment').value)
+            store.dispatch({ type: INCREMENT, value, counter })
+          }
+        )
+        document.getElementById('decrement')
+          .addEventListener('click', () => {
+            const value = parseInt(document.getElementById('value-decrement').value)
+            store.dispatch({ type: DECREMENT, value, counter });
+          }
+        )
+
+        document.getElementById('multi')
+          .addEventListener('click', () => {
+            store.dispatch({ type: INCREMENT, value: 10, counter })
+          }
+        )
+
+        store.subscribe(() => document.getElementById('value').innerHTML = store.getState().atualValue.toString());
+
+      </script>
+    </body>
+  </html>
