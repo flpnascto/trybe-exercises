@@ -1,12 +1,22 @@
 const INITIAL_STATE = {
-    userName: '',
+    userLogged: '',
     userPassword: '',
 };
 
 function listReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'LOGIN':
-      return [];
+      return (
+        { ...state,
+          userLogged: action.payload.user,
+          userPassword: action.payload.password,
+        });
+    case 'LOGOUT':
+      return (
+        { ...state,
+          userLogged: '',
+          userPassword: '',
+        });
     default:
       return state;
   }
