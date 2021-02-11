@@ -240,3 +240,6 @@ SELECT CONCAT('Existem ', COUNT(*), ' cientistas na tabela Scientists.') FROM Sc
    ```
 
 </details>
+
+## Exercícios Bônus
+[ver aqui](https://github.com/flpnascto/trybe-exercises/blob/exercises_20.2/back-end/bloco_20/dia_02/Exerc%C3%ADciosB%C3%B4nus.md)
