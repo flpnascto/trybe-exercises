@@ -95,61 +95,148 @@ INSERT INTO Scientists(SSN,Name)
 </details>
 <details>
   <summary>1. Escreva uma query para exibir a string "This is SQL Exercise, Practice and Solution".</summary>
-  
+
+```sql
+SELECT 'This is SQL Exercise, Practice and Solution'
+   ```
+
 </details>  
 <details>
   <summary>2. Escreva uma query para exibir três números em três colunas.</summary>
 
-</details>
-<details>
-  <summary>3. Escreva uma query para exibir a soma dos números 10 e 15.</summary>
+```sql
+SELECT 1 as 'Column One', 2 AS 'Column Two', 3 AS 'Column Three';
+   ```
 
 </details>
 <details>
+  <summary>3. Escreva uma query para exibir a soma dos números 10 e 15.</summary>
+  
+```sql
+SELECT 10 * 15;
+   ```
+   
+</details>
+<details>
   <summary>4. Escreva uma query para exibir o resultado de uma expressão aritmética qualquer.</summary>
+  
+```sql
+SELECT 2021 - 1984;
+   ```
 
 </details>
 <details>
   <summary>5. Escreva uma query para exibir todas as informações de todos os cientistas.</summary>
 
+```sql
+SELECT * FROM Scientists.Scientists;
+   ```
+
 </details>
 <details>
   <summary>6. Escreva uma query para exibir o nome como "Nome do Projeto" e as horas como "Tempo de Trabalho" de cada projeto.</summary>
+  
+
+```sql
+SELECT Name, Hours FROM Scientists.Projects;
+   ```
 
 </details>
 <details>
   <summary>7. Escreva uma query para exibir o nome dos cientistas em ordem alfabética.</summary>
 
+
+```sql
+SELECT Name FROM Scientists.Scientists ORDER BY Name;
+   ```
+
 </details>
 <details>
   <summary>8. Escreva uma query para exibir o nome dos Projetos em ordem alfabética descendente.</summary>
+
+
+```sql
+SELECT Name FROM Scientists.Projects
+ORDER BY Name DESC;
+   ```
 
 </details>
 <details>
   <summary>9 .Escreva uma query que exiba a string "O projeto Name precisou de Hours horas para ser concluído." para cada projeto.</summary>
 
+
+```sql
+SELECT CONCAT(
+  'O projeto ',
+  Name,
+  ' precisou de ',
+  Hours,
+  ' horas para ser concluído.')
+AS 'Horas de cada Projeto'
+FROM Scientists.Projects;
+   ```
+
 </details>
 <details>
   <summary>10. Escreva uma query para exibir o nome e as horas dos três projetos com a maior quantidade de horas.</summary>
+
+
+```sql
+SELECT Name, Hours FROM Scientists.Projects
+ORDER BY Hours DESC
+LIMIT 3;
+   ```
 
 </details>
 <details>
   <summary>11. Escreva uma query para exibir o código de todos os projetos da tabela AssignedTo sem que haja repetições.</summary>
 
+
+```sql
+SELECT DISTINCT Scientist FROM Scientists.AssignedTo;
+   ```
+
 </details>
 <details>
   <summary>12. Escreva uma query para exibir o nome do projeto com maior quantidade de horas.</summary>
 
-</details>
-<details>
-  <summary>13. Escreva uma query para exibir o nome do segundo projeto com menor quantidade de horas.
+
+```sql
+SELECT Name FROM Scientists.Projects
+ORDER BY Hours DESC
+LIMIT 1;
+   ```
 
 </details>
 <details>
-  <summary>14. Escreva uma query para exibir todas as informações dos cinco projetos com a menor quantidade de horas.
+  <summary>13. Escreva uma query para exibir o nome do segundo projeto com menor quantidade de horas.</summary>
+
+
+```sql
+SELECT Name FROM Scientists.Projects
+ORDER BY Hours
+LIMIT 1
+OFFSET 1;
+   ```
 
 </details>
 <details>
-  <summary>15. Escreva uma query que exiba a string "Existem Number cientistas na tabela Scientists.", em que Number se refira a quantidade de cientistas.
+  <summary>14. Escreva uma query para exibir todas as informações dos cinco projetos com a menor quantidade de horas.</summary>
+
+
+```sql
+SELECT * FROM Scientists.Projects
+ORDER BY Hours
+LIMIT 5;
+   ```
+
+</details>
+<details>
+  <summary>15. Escreva uma query que exiba a string "Existem Number cientistas na tabela Scientists.", em que Number se refira a quantidade de cientistas.</summary>
+
+
+```sql
+SELECT CONCAT('Existem ', COUNT(*), ' cientistas na tabela Scientists.') FROM Scientists.Scientists;
+   ```
 
 </details>
