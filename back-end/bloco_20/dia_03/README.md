@@ -9,7 +9,7 @@ Olá, pessoal, bem-vindos e bem-vindas de volta! Na última aula, você teve a o
 * Encontrar e separar resultados que incluem datas.
 
 ## Exercícios
-[Ver aqui](https://github.com/flpnascto/trybe-exercises/blob/exercises_20.2/back-end/bloco_20/dia_03/exercicios.md)
+[Ver aqui](https://github.com/flpnascto/trybe-exercises/blob/master/back-end/bloco_20/dia_03/exercicios.md)
 
 ## Exercícios Bônus
-[Ver aqui](https://github.com/flpnascto/trybe-exercises/blob/exercises_20.2/back-end/bloco_20/dia_03/exercicios_bonus.md)
+[Ver aqui](https://github.com/flpnascto/trybe-exercises/blob/master/back-end/bloco_20/dia_03/exercicios_bonus.md)
