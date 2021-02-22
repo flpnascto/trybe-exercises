@@ -87,7 +87,11 @@ WHERE id = @key_column;
   <summary>4. O título do filme "Ratatouille" esta escrito de forma incorreta na tabela <code>Movies</code>, além disso, o filme foi lançado em 2007 e não em 2010. Corrija esses dados utilizando o <code>UPDATE</code>.</summary>
 
 ```sql
+SET @key_column = (SELECT id FROM Pixar.Movies WHERE title = "ratatui");
 
+UPDATE Pixar.Movies
+SET title = "Ratatouille", year = 2007
+WHERE id = @key_column;
    ```
 
 </details>
