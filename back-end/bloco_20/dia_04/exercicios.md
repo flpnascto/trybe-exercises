@@ -103,7 +103,14 @@ WHERE id = @key_column;
 - WALL-E, classificado em 9.9, lucrou 290 milhões no mercado interno e 280 milhões no mercado internacional.
 
 ```sql
+SET @idA = (SELECT id FROM Pixar.Movies WHERE Pixar.Movies.title = "Monstros SA");
+SET @idB = (SELECT id FROM Pixar.Movies WHERE Pixar.Movies.title = "Os Incríveis");
+SET @idC = (SELECT id FROM Pixar.Movies WHERE Pixar.Movies.title = "WALL-E");
 
+INSERT INTO Pixar.BoxOffice (movie_id, rating, domestic_sales, international_sales)
+VALUES (@idA, 8.5, 300000000, 250000000),
+       (@idB, 7.4, 460000000, 510000000),
+       (@idC, 9.9, 290000000, 280000000);
    ```
 
 </details>
