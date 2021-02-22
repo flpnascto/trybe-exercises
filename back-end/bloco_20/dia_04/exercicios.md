@@ -118,7 +118,13 @@ VALUES (@idA, 8.5, 300000000, 250000000),
   <summary>6. Exclua da tabela <code>Movies</code> o filme "WALL-E".</summary>
 
 ```sql
+SET @key_column = (SELECT id FROM Pixar.Movies WHERE title = "WALL-E");
 
+DELETE FROM Pixar.BoxOffice
+WHERE movie_id = @key_column;
+
+DELETE FROM Pixar.Movies
+WHERE id = @key_column;
    ```
 
 </details>
