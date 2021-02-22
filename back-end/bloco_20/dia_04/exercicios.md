@@ -132,7 +132,16 @@ WHERE id = @key_column;
   <summary>7. Exclua da tabela <code>Movies</code> todos os filmes dirigidos por "Andrew Staton".</summary>
 
 ```sql
+-- Verifica quais ids possuem o diretor Andrew Staton
+-- SELECT id FROM Movies
+-- WHERE director = "Andrew Staton";
 
+-- Deleta as linhas correspondentes ao retorno do SELECT acima
+DELETE FROM BoxOffice
+WHERE movie_id IN (2, 9);
+ 
+DELETE FROM Movies
+WHERE id IN (2, 9);
    ```
 
 </details>
