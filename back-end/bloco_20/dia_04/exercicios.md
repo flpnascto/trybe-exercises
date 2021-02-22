@@ -1,6 +1,7 @@
 # Exercicios 20.4
 <details>
   <summary>Banco de Dados</summary>
+
 ```sql
 DROP SCHEMA IF EXISTS Pixar;
 CREATE SCHEMA Pixar;
@@ -40,6 +41,7 @@ INSERT INTO BoxOffice(movie_id, rating, domestic_sales, international_sales)
          (5, 7.8, 140000000, 310000000),
          (6, 5.8, 540000000, 600000000),
          (7, 7.5, 250000000, 190000000);
+   ```         
 </details>
 <details>
   <summary>1. Insira as produções da Pixar abaixo na tabela <code>Movies</code>:</summary>
