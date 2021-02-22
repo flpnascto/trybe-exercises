@@ -47,7 +47,11 @@ INSERT INTO BoxOffice(movie_id, rating, domestic_sales, international_sales)
   <summary>8. Altere a classificação da tabela <code>BoxOffice</code> para 9.0 de todos os filmes que lucraram mais de 400 milhões no mercado interno.</summary>
 
 ```sql
+SET SQL_SAFE_UPDATES = 0;
 
+UPDATE Pixar.BoxOffice
+SET rating = 9.0
+WHERE domestic_sales > 400000000;
    ```
 
 </details>
