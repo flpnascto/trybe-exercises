@@ -71,7 +71,15 @@ WHERE international_sales < 300000000 AND domestic_sales > 200000000;
   <summary>10. Exclua da tabela <code>Movies</code> todos os filmes com menos de 100 minutos de duração.</summary>
 
 ```sql
+-- Verifica quais ids possuem filmes com menos de 100 minutos de duração
+-- SELECT id FROM Pixar.Movies
+-- WHERE length_minutes < 100;
 
+DELETE FROM BoxOffice
+WHERE movie_id IN (1, 6, 7, 8);
+ 
+DELETE FROM Movies
+WHERE id IN (1, 6, 7, 8);
    ```
 
 </details>
