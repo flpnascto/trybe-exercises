@@ -75,7 +75,11 @@ VALUES (@id, 6.8, 450000000, 370000000);
   <summary>3. O diretor do filme "Procurando Nemo" está incorreto, na verdade ele foi dirigido por Andrew Staton. Corrija esse dado utilizando o <code>UPDATE</code>.</summary>
 
 ```sql
+SET @key_column = (SELECT id FROM Pixar.Movies WHERE title = "Procurando Nemo");
 
+UPDATE Pixar.Movies
+SET director = "Andrew Staton"
+WHERE id = @key_column;
    ```
 
 </details>
