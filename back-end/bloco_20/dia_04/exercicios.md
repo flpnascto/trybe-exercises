@@ -64,7 +64,10 @@ VALUES ("Monstros SA", "Pete Docter", 2001, 92),
   <summary>2. Procurando Nemo foi aclamado pela crítica! Foi classificado em 6.8, fez 450 milhões no mercado interno e 370 milhões no mercado internacional. Adicione as informações à tabela <code>BoxOffice</code>.</summary>
 
 ```sql
+SET @id = (SELECT id FROM Pixar.Movies WHERE Pixar.Movies.title = "Procurando Nemo");
 
+INSERT INTO Pixar.BoxOffice (movie_id, rating, domestic_sales, international_sales)
+VALUES (@id, 6.8, 450000000, 370000000);
    ```
 
 </details>
