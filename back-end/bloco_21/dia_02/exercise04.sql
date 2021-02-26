@@ -41,3 +41,30 @@ INSERT INTO Employees(SSN,Name,LastName,Department) VALUES('654873219','Zacary',
 INSERT INTO Employees(SSN,Name,LastName,Department) VALUES('745685214','Eric','Goldsmith',59);
 INSERT INTO Employees(SSN,Name,LastName,Department) VALUES('845657245','Elizabeth','Doe',14);
 INSERT INTO Employees(SSN,Name,LastName,Department) VALUES('845657246','Kumar','Swamy',14);
+
+-- 2.10 Select all the data of employees, including each employee's department's data.
+SELECT *
+FROM praticando.Employees AS e
+JOIN praticando.Departments AS d
+ON e.Department = d.Code;
+
+-- 2.11 Select the name and last name of each employee, along with the name and budget of the employee's department.
+SELECT e.Name, e.LastName, d.Name, d.Budget
+FROM praticando.Employees AS e
+JOIN praticando.Departments AS d
+ON e.Department = d.Code;
+
+-- 2.12 Select the name and last name of employees working for departments with a budget greater than $60,000.
+SELECT e.Name, e.LastName, d.Budget
+FROM praticando.Employees AS e
+JOIN praticando.Departments AS d
+ON e.Department = d.Code
+HAVING d.Budget > 60000;
+
+-- 2.14 Select the names of departments with more than two employees.
+SELECT d.Name
+FROM praticando.Employees AS e
+JOIN praticando.Departments AS d
+ON e.Department = d.Code
+GROUP BY d.Code
+HAVING COUNT(e.Name) > 2;
