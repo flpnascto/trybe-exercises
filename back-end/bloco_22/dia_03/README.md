@@ -143,3 +143,26 @@ WHERE postal_code = '36693';
   </tr>
 </table>
 </details>
+
+## Exercícios sobre `ALTER TABLE`
+<details>
+  <summary>1. Escreva uma query SQL para alterar o nome da coluna street_address para address, mantendo o mesmo tipo e tamanho de dados.</summary>
+  
+```sql
+ALTER TABLE hr.locations RENAME COLUMN street_address TO address;
+```
+</details>
+<details>
+  <summary>2. Escreva uma query SQL para alterar o nome da coluna region_name para region, mantendo o mesmo tipo e tamanho de dados.</summary>
+  
+```sql
+ALTER TABLE hr.regions RENAME COLUMN region_name TO region;
+```
+</details>
+<details>
+  <summary>3. Escreva uma query SQL para alterar o nome da coluna country_name para country, mantendo o mesmo tipo e tamanho de dados.</summary>
+  
+```sql
+ALTER TABLE hr.countries RENAME COLUMN country_name TO country;
+```
+</details>
