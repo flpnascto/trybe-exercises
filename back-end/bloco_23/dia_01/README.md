@@ -1,4 +1,4 @@
-#
+# MongoDB - Introdução
 ## Conteúdo
 Hoje você vai aprender o que é o **MongoDB**, como instalá-lo, conectar-se a ele e executar comandos de leitura/escrita. Também vai aprender sobre tipos de instalação, conceitos de databases, coleções, operadores e documentos.
 ## Objetivo
@@ -299,16 +299,51 @@ from: [The bios Example Collection](https://docs.mongodb.com/manual/reference/bi
 <details>
   <summary>1. Retorne o documento com <code>_id</code> igual a 8.</summary>
   
- ```json
+ ```
  db.bios.find({ _id: 8 })
    ```
 
 </details>
-  <details>
-  <summary>2. Retorne o documento com <code>_id</code> igual a 8, mas só exiba os campos: <code>_id</code> e <code>name</code> .</summary>
+<details>
+  <summary>2. Retorne o documento com <code>_id</code> igual a 8, mas só exiba os campos: <code>_id</code> e <code>name</code>.</summary>
   
- ```json
+ ```
  db.bios.find({ _id: 8 }, { name: 1 })
    ```
 
 </details>
+<details>
+  <summary>3. Retorne apenas os campos <code>name</code> e <code>birth</code> do documento com <code>_id</code> igual a 8.</summary>
+  
+ ```
+db.bios.find({ _id: 8}, { _id: 0, name: 1, birth: 1 })
+   ```
+
+</details>
+<details>
+  <summary>4. Retorne todos os documentos em que o campo <code>name.first</code> seja igual a John , utilizando o método <code>pretty()</code>.</summary>
+  
+ ```
+db.bios.find( {'name.first': "John" })
+   ```
+
+</details>
+<details>
+  <summary>5. Retorne os 3 primeiros documentos da coleção bios utilizando o método <code>pretty()</code> .</summary>
+  
+ ```
+db.bios.find().limit(3)
+   ```
+
+</details>
+<details>
+  <summary>6. Retorne 2 documentos da coleção bios pulando os 5 primeiros documentos.</summary>
+  
+ ```
+db.bios.find().limit(2).skip(5)
+   ```
+
+</details>
+
+Utilizando o [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/) , importe o arquivo [books.json](https://course.betrybe.com//back-end/mongodb/books.json) para a sua instância local do MongoDB e utilize a coleção books para construir queries para as seguintes questões:
+<details>
