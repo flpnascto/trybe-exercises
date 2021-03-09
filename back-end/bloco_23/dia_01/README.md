@@ -302,5 +302,13 @@ from: [The bios Example Collection](https://docs.mongodb.com/manual/reference/bi
  ```json
  db.bios.find({ _id: 8 })
    ```
-   
- </details>
+
+</details>
+  <details>
+  <summary>2. Retorne o documento com <code>_id</code> igual a 8, mas só exiba os campos: <code>_id</code> e <code>name</code> .</summary>
+  
+ ```json
+ db.bios.find({ _id: 8 }, { name: 1 })
+   ```
+
+</details>
