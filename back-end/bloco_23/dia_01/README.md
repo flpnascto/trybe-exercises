@@ -296,3 +296,11 @@ db.bios.insertMany([
   ```
 from: [The bios Example Collection](https://docs.mongodb.com/manual/reference/bios-example-collection/)
 </details>
+<details>
+  <summary>1. Retorne o documento com <code>_id</code> igual a 8.</summary>
+  
+ ```json
+ db.bios.find({ _id: 8 })
+   ```
+   
+ </details>
