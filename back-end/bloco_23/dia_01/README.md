@@ -347,3 +347,35 @@ db.bios.find().limit(2).skip(5)
 
 Utilizando o [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/) , importe o arquivo [books.json](https://course.betrybe.com//back-end/mongodb/books.json) para a sua instância local do MongoDB e utilize a coleção books para construir queries para as seguintes questões:
 <details>
+  <summary>7. Retorne a quantidade de documentos da coleção <code>books</code>.</summary>
+  
+ ```
+db.books.countDocuments()
+   ```
+
+</details>
+<details>
+  <summary>8. Conte quantos livros existem com o <code>status "PUBLISH"</code>.</summary>
+  
+ ```json
+db.books.find( { status: "PUBLISH" } ).count()
+   ```
+
+</details>
+<details>
+  <summary>9. Exiba os campos <code>title</code> , <code>isbn</code> e <code>pageCount</code> dos 3 primeiros livros. NÃO retorne o campo <code>_id</code>.</summary>
+  
+ ```json
+db.books.find({}, { _id: 0, status: 1, isbn: 1, pageCount: 1 } ).limit(3)
+   ```
+
+</details>
+<details>
+  <summary>10. Pule 5 documentos e exiba os campos <code>_id</code>, <code>title</code>, <code>authors</code> e <code>status</code> do livros com <code>status "MEAP"</code>, limitando-se a 10 documentos.</summary>
+  
+ ```json
+db.books.find({ status: "MEAP" }, { _id: 1, status: 1, authors: 1, status: 1 } ).skip(5).limit(10)
+
+   ```
+
+</details>
