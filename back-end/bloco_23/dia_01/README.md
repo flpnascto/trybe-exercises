@@ -345,7 +345,7 @@ db.bios.find().limit(2).skip(5)
 
 </details>
 
-Utilizando o [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/) , importe o arquivo [books.json](https://course.betrybe.com//back-end/mongodb/books.json) para a sua instância local do MongoDB e utilize a coleção books para construir queries para as seguintes questões:
+Utilizando o [mongoimport](https://docs.mongodb.com/manual/reference/program/mongoimport/) , importe o arquivo [books.json](./books.json) para a sua instância local do MongoDB e utilize a coleção books para construir queries para as seguintes questões:
 <details>
   <summary>7. Retorne a quantidade de documentos da coleção <code>books</code>.</summary>
   
