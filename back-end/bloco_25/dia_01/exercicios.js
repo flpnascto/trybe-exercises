@@ -203,10 +203,7 @@ db.getCollection('clientes').aggregate([
 db.getCollection('vendas').aggregate([
   {
     $match: {
-      dataVenda: {
-        $gte: ISODate('2019-01-01'),
-        $lte: ISODate('2019-12-31')
-      }
+      $expr: { $eq: [{ $year: "$dataVenda"}, 2019]}
     }
   },
   {
