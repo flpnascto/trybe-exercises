@@ -28,8 +28,6 @@ function readingFile() {
     rl.close();
   });
 
-
-
 }
 
 readingFile();
