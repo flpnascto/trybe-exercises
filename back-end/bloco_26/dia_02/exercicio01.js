@@ -16,19 +16,5 @@ function operation(numA, numB, numC) {
       return result;
     })
 }
-
-operation(5, 3, 10)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
-
-operation(5, 3, 2)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
-
-operation(10, '40', 10)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
-
-operation("abc", 40, 10)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
+//module.exports = { add };
+module.exports = { operation };

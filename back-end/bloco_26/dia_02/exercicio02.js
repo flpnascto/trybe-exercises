@@ -1,31 +1,13 @@
-async function operation(numA, numB, numC) {
-  if (
-    typeof numA !== 'number'
-    || typeof numB !== 'number'
-    || typeof numC !== 'number'
-  ) return Promise.reject('Digite apenas números');
+const lib = require('./exercicio01')
 
-  result = (numA + numB) * numC;
-
-  if (result < 50)
-    return Promise.reject('Valor muito baixo');
-
-  return result;
-
+function generateNumbers() {
+  return Math.floor(Math.random() * 100)
 }
 
-operation(5, 3, 10)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
+const numA = generateNumbers();
+const numB = generateNumbers();
+const numC = generateNumbers();
 
-operation(5, 3, 2)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
-
-operation(10, '40', 10)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
-
-operation("abc", 40, 10)
-  .then(result => console.log(`Resultado ${result}`))
-  .catch(err => console.log(`error: ${err}`))
+lib.operation(numA, numB, numC)
+  .then(resolve => console.log(resolve))
+  .catch(e => console.error(`Aconteceu o erro: ${e}`))

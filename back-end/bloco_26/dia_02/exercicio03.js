@@ -1,35 +1,26 @@
-const readline = require('readline');
-const fs = require('fs');
+const lib = require('./exercicio01')
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+function generateNumbers() {
+  return Math.floor(Math.random() * 1)
+}
 
-function readingFile() {
-  rl.question('Qual arquivo deseja ler? ', (fileName) => {
-    fs.readFile(fileName, 'utf-8', (err, data) => {
-      if (err) {
-        console.error(`Não foi possível ler o arquivo "${fileName}"\n${err}`);
-        process.exit(1);
-      }
+async function resolveOperation() {
+  const numA = generateNumbers();
+  const numB = generateNumbers();
+  const numC = generateNumbers();
 
-      fs.stat(fileName, (err, stats) => {
-        if (err) {
-          console.error(`Não foi possível ler o tamanho do arquivo "${fileName}"\n${err}`);
-          process.exit(1);
-        }
-        console.log(`Tamanho do arquivo ${stats.size} bytes`)
-      })
-      console.log(data);
+  try {
+    const result = await lib.operation(numA, numB, numC);
+    console.log(result);
+  } catch (error) {
+    console.error(error)
+  }
 
-    });
-
-    rl.close();
-  });
 
 
 
 }
 
-readingFile();
+resolveOperation();
+
+
