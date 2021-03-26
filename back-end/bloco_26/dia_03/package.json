@@ -1,0 +1,14 @@
+{
+  "name": "bloco26_dia03",
+  "version": "1.0.0",
+  "description": "Exercicios Bloco 26 dia 03",
+  "main": "exercicio01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ex01": "node exercicio01.js",
+    "ex02": "node exercicio02.js",
+    "ex03": "node exercicio03.js"
+  },
+  "author": "Felipe Nascimento",
+  "license": "ISC"
+}
