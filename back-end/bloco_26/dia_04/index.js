@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const rescue = require('express-rescue');
+const fs = require('fs').promises;
 
 const app = express();
 
@@ -27,6 +29,55 @@ app.put('/users/:name/:age', (req, res) => {
   res.json({
     "message": `Seu nome é ${name} e você tem ${age} anos de idade.`
   })
+})
+
+app.get('/simpsons', rescue(async (req, res) => {
+  const apiData = await fs.readFile('./simpsons.json');
+  res.json(JSON.parse(apiData));
+}))
+
+app.get('/simpsons/:id', rescue(async (req, res) => {
+  const charId = req.params.id;
+
+  const apiData = await fs.readFile('./simpsons.json');
+  const apiDataJson = JSON.parse(apiData);
+
+  const char = apiDataJson.find((e) => e.id == charId);
+  // if (!char) throw { "error": "Id não encontrado", "code": 404 }
+
+  if (!char) res.json([])
+  res.json(char);
+}))
+
+app.post('/simpsons/', rescue(async (req, res) => {
+  const { id, name } = req.body;
+
+  const apiData = await fs.readFile('./simpsons.json');
+  const apiDataJson = JSON.parse(apiData);
+
+  if (apiDataJson.some((e) => e.id == id)) {
+    throw { "error": "Id existente", "code": 400 }
+  }
+
+  const newChar = { "id": `${id}`, "name": `${name}` }
+  apiDataJson.push(newChar);
+  await fs.writeFile('./simpsons.json', JSON.stringify(apiDataJson));
+
+  res.json({ ...newChar, "status": "Adicionado com sucesso!" })
+
+}));
+
+app.use((err, req, res, next) => {
+
+  if (err.code === 400) {
+    res.status(400).json({ ...err })
+  }
+
+  if (err.code === 404) {
+    res.status(404).json({ ...err })
+  }
+
+  res.status(500).json({ error: `Erro: ${err.message}` })
 })
 
 app.listen(3000);
