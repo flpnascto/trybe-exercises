@@ -67,6 +67,10 @@ app.post('/simpsons/', rescue(async (req, res) => {
 
 }));
 
+app.get('*', (req, res) => {
+  throw { "error": "Endpoint não existente", "code": 404 }
+})
+
 app.use((err, req, res, next) => {
 
   if (err.code === 400) {
