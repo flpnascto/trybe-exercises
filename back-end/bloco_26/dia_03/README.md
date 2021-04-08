@@ -5,6 +5,7 @@ Vamos passar, de forma geral, por três conceitos:
 - Call Stack
 - Event Loop
 - V8
+
 Esses três conceitos são sempre os mesmos, independente de qual implementação do JavaScript você estiver usando. Ou seja, o que você vai aprender aqui vale tanto pro JS que roda no browser quanto pro código que você executará com o NodeJS.
 
 Como estamos utilizando JavaScript tanto no back-end quanto no front-end, é importante entender como ele funciona, pra que possamos evitar e resolver problemas mais facilmente. Além disso, entender o que são os conceitos de **Event Loop** e **Call Stack** nos permite escrever códigos melhores e mais performáticos, uma vez que entendemos como esse código será executado.
@@ -28,7 +29,7 @@ Dica: utilize a função `readFile` do módulo `fs` do Node.js.
 1. Escreva a quantidade de arquivos existentes dentro dela;
 2. Escreva a soma do tamanho de todos os arquivos presentes nela;
 3. Escreva no terminal o tempo total de execução do script.
-Dica: utilize a função `readFile` do módulo `fs` do Node.js.
+Dica: utilize a função `readdirSync` do módulo `fs` do Node.js.
 
 **Exercício 4** : Recrie o script do exercício 3 utilizando apenas funções assíncronas.
-Dica: utilize a função `readFile` do módulo `fs` do Node.js.
+Dica: utilize a função `readdir` do módulo `fs` do Node.js.
