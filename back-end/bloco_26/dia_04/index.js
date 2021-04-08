@@ -2,10 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const rescue = require('express-rescue');
 const fs = require('fs').promises;
+const tokenMiddleware = require('./tokenMiddleware')
 
 const app = express();
 
 app.use(bodyParser.json());
+
+
 
 app.get('/', (req, res) => {
   res.send("Express: HTTP com Node.js")
@@ -32,6 +35,7 @@ app.put('/users/:name/:age', (req, res) => {
 })
 
 app.get('/simpsons', rescue(async (req, res) => {
+  req.tokenMiddleware;
   const apiData = await fs.readFile('./simpsons.json');
   res.json(JSON.parse(apiData));
 }))
