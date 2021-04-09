@@ -10,15 +10,14 @@ const isValid = (firstName, lastName, email, password) => {
   return '';
 }
 
-const create = async (firstName, lastName, email, password) => {
-  await connection()
+const create = async (firstName, lastName, email, password) =>
+  connection()
     .then((db) => db.collection('users').insertOne({
       firstName,
       lastName,
       email,
       password,
-    }))
-}
+    }));
 
 const getAll = async () => {
   return connection()
@@ -42,18 +41,35 @@ const findById = async (userId) => {
       console.log(err.message);
       return null;
     });
-  console.log('user: ', user)
+
   if (!user) return null;
-  return {
+
+  return ({
+    id: user['_id'],
     firstName: user.firstName,
     lastName: user.lastName,
     email: user.email
-  }
+  });
 }
+
+const updateUser = async (userId, user) =>
+  connection()
+    .then((db) => db.collection('users').updateOne(
+      { _id: userId },
+      {
+        $set: {
+          "firstName": user.firstName,
+          "lastName": user.lastName,
+          "email": user.email,
+          "password": user.password
+        }
+      }
+    ));
 
 module.exports = {
   isValid,
   create,
   getAll,
   findById,
+  updateUser,
 }
