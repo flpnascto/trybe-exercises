@@ -52,10 +52,13 @@ const findById = async (userId) => {
 
 const updateUser = async (userId, user) => {
   const { firstName, lastName, email, password } = user;
-  const query = ('UPDATE users_crud.users SET first_name=?, last_name=?, email=?, password=? WHERE id=?')
+  const query = ('UPDATE users_crud.users SET first_name=?, last_name=?, email=?, password=? WHERE id=?');
 
-  const result = await connection.execute(query, [firstName, lastName, email, password, userId])
-  console.log('result', result)
+  const result = await connection.execute(query, [firstName, lastName, email, password, userId]);
+
+  if (result[0].affectedRows === 1) return ({ firstName, lastName, email, password });
+
+  return {};
 }
 
 module.exports = {

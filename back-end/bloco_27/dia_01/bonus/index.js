@@ -68,8 +68,7 @@ app.put('/user/:id', async (req, res) => {
 
   const userToUpdate = { firstName, lastName, email, password }
 
-  const userUpdated = await User.updateUser(id, userToUpdate)
-  console.log('index user', userUpdated)
+  const userUpdated = await User.updateUser(id, userToUpdate);
   res.status(200).json(userUpdated);
 })
 
