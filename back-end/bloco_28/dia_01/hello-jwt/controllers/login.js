@@ -15,9 +15,21 @@ module.exports = async (req, res, next) => {
 
   if (error) return next(error);
 
+  let admin = false
+
+  const { username, password } = req.body;
+  if (username === 'admin') {
+    if (password !== 's3nh4S3gur4??') {
+      const err = new Error('Invalid username or password');
+      err.statusCode = 401;
+      return next(err);
+    }
+    admin = true;
+  }
+
   const payload = {
     username: req.body.username,
-    admin: false,
+    admin,
   }
 
   const jwtConfig = {
