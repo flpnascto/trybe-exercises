@@ -1,0 +1,16 @@
+{
+  "name": "dia_01",
+  "version": "1.0.0",
+  "description": "Hoje vamos começar a aprender sobre os cinco princípios que abrangem o **SOLID** . 🎉 Esses princípios, ou boas práticas, ditam como seu código deve ser escrito e como ele deve ser organizado para otimizar manutenção, legibilidade e testabilidade.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
