@@ -6,13 +6,15 @@ module.exports = {
       {
         title: 'O Livro dos Espíritos',
         author: 'Allan Kardec',
-        createAt: new Date(),
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       {
         title: 'A Caminho da Luz',
         author: 'Francisco Candido Xavier',
         pageQuantity: 206,
-        createAt: new Date(),
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
 
     ], {});
