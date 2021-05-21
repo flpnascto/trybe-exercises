@@ -1,13 +1,12 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const controllers = require('./controllers/productController.js')
-const middlewares = require('./middlewares.js')
+const controllers = require('./controllers/productController')
+const middlewares = require('./middlewares')
 
 const app = express();
 
 app.use(express.json());
-app.use(middlewares.log)
-app.use(middlewares.checkAuthToken)
+// app.use(middlewares.log)
+// app.use(middlewares.checkAuthToken)
 
 app.use(express.urlencoded({ extended: false }));
 
