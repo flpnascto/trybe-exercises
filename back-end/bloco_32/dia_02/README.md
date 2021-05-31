@@ -1,13 +1,14 @@
-# Sockets - Socket.io
+# Sockets - TCP/UDP & NET
 ## Conteúdo
-O tópico de hoje será sobre uma ferramenta: uma extensão de _sockets_, uma forma nova e prática de desenvolver funcionalidades do mundo real sem muita dor de cabeça. Apresentamos-lhes o **socket.io**! 🎉
-O `socket.io` é um pacote _JavaScript_ que funciona tanto no front-end quanto no back-end, ou seja, você pode importá-lo tanto no Node.js quanto no seu projeto React, Angular, Vuejs ou até mesmo em um projeto sem nenhuma framework. Esse pacote nos permite implementar ações _real time_ em nossa aplicação, como um sistema de notificação!
+Nesta aula iremos aprender como é feita a comunição entre máquinas através da rede, usando o tão famoso **protocolo TCP/IP**. Além disso, aprenderemos um pouco mais sobre como essas informações trafegam na rede.
 
-Sockets são um padrão de comunicação muito usado em aplicações _real time_. Contudo, usar o pacote _NET_ do `Node.js` é muito custoso quando precisamos fazer uma aplicação de grande porte, e é nesses momentos que temos outras bibliotecas para nos ajudar.
-Diferentemente da aplicação que fizemos na aula anterior, o `socket.io` nos permite implementar mecanismos mais complexos do que o que fizemos e de um forma até mais simples do que a que vimos. Alguns exemplos dos mecanismos mais complexos que podemos implementar são: controle de salas, limite do número de users conectados no servidor, trabalhar com eventos de uma maneira mais customizável etc. Vamos ver mais sobre isso hoje!
+Sockets permitem a comunicação entre computadores. Um exemplo de sockets usados para comunicação são as APIs que desenvolvemos em aulas passadas. A comunicação feita entre um site e uma API (que está em um servidor remoto) é feita através de um socket.
+Essa tecnologia existe na maioria dos sistemas operacionais e linguagens de programação, possibilitando a quem desenvolve o estabelecimento de comunicação de aplicações que necessitam transmitir/receber dados através da internet e, também, desenvolver serviços de rede, como servidores web, _FTP_, _SSH_ ou qualquer outro baseado em _TCP/IP_.
 # Objetivos
-- Conseguir desenvolver um server socket usando o **socket.io**;
-- Emitir eventos personalizados usando o **socket.io**;
+- Usar o pacote NET do `Node.js` para criar aplicações que trafeguem mensagens através de **sockets**.
 # Exercícios
-1. Envie a mensagem recebida no servidor para todos os outros clientes, exceto para quem a enviou.
-2. Adicione um nickname para cada pessoa usuária. Os nomes não precisam vir da pessoa usuária/front-end.
+Utilize o pacote `NET` para ver, na prática, como é trafegar dados via sockets pelo `Node.js`!
+1. Como vocês viram nos exemplos acima, a conexão nunca fica ligada por muito tempo, pois assim que recebemos e respondemos, a conexão é desligada. Por esse motivo, experimentem remover a resposta do servidor e veja quanto tempo a conexão fica ligada!
+2. Através do método `server.getConnections((err, count) => {})` , imprima quantas conexões estão de pé.
+- **Observação**: Abra um terminal para o server e dois ou três para os clientes. Para cada cliente conectado, deverá ser impresso no server a quantidade de clientes conectados. Conecte todos os clientes e depois vá desconectando e conectando-os para você ver, na prática, como são feitas as conexões abertas que citamos no material.
+3. Envie uma mensagem do cliente para o servidor.
