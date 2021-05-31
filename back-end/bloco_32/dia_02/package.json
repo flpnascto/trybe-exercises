@@ -1,0 +1,12 @@
+{
+  "name": "dia_02",
+  "version": "1.0.0",
+  "description": "Nesta aula iremos aprender como é feita a comunição entre máquinas através da rede, usando o tão famoso **protocolo TCP/IP**. Além disso, aprenderemos um pouco mais sobre como essas informações trafegam na rede.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
