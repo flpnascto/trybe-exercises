@@ -14,6 +14,10 @@ const server = net.createServer((connection) => {
   // connection.pipe(connection);
 });
 
+server.getConnections((err, count) => {
+  console.log('Conexões ativas: ', count);
+});
+
 /* Após termos programado o servidor, é só colocá-lo de pé */
 server.listen(8080, () => {
   console.log('Servidor escutando na porta 8080');
