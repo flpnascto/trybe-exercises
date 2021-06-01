@@ -14,6 +14,7 @@ io.on('connection', (socket) => {
 });
 
 require('./sockets/likePost')(io);
+require('./sockets/starPost')(io);
 
 app.use(express.static(__dirname + '/public'));
 
