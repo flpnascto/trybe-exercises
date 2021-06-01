@@ -1,0 +1,20 @@
+{
+  "name": "dia_03",
+  "version": "1.0.0",
+  "description": "O tópico de hoje será sobre uma ferramenta: uma extensão de _sockets_, uma forma nova e prática de desenvolver funcionalidades do mundo real sem muita dor de cabeça. Apresentamos-lhes o **socket.io**! 🎉 O `socket.io` é um pacote _JavaScript_ que funciona tanto no front-end quanto no back-end, ou seja, você pode importá-lo tanto no Node.js quanto no seu projeto React, Angular, Vuejs ou até mesmo em um projeto sem nenhuma framework. Esse pacote nos permite implementar ações _real time_ em nossa aplicação, como um sistema de notificação!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
