@@ -8,3 +8,7 @@ document.querySelector('#starIcon').addEventListener('click', () => {
 
   socket.emit('starPost');
 })
+
+socket.on('updateStars', (currentStars) => {
+  document.querySelector('#currentStars').innerHTML = currentStars;
+});
