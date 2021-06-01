@@ -13,6 +13,8 @@ io.on('connection', (socket) => {
   console.log(`Cliente conectado. ID: ${socket.id} `);
 });
 
+require('./sockets/likePost')(io);
+
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (_req, res) => {
