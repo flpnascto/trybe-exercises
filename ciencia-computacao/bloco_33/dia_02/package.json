@@ -1,0 +1,15 @@
+{
+  "name": "dia_02",
+  "version": "1.0.0",
+  "description": "No conteúdo de hoje iremos nos aprofundar mais em redes de computadores, entendendo um pouco melhor como funcionam as diversas redes e como utilizamos isso no nosso dia-a-dia, seja para acessar uma aplicação ou para desenvolver uma aplicação que explore essa arquitetura. Aprenderemos também sobre os diversos protocolos e como eles são utilizados, assim como os diversos componentes que formam as redes de computadores como, por exemplo, clients e servers . Antes, no entanto, de começarmos a falar sobre rede computadores e sua arquitetura precisamos falar sobre a internet, a rede mundial de computadores que permite a troca de informações globalmente. A internet nada mais é que uma implementação de uma rede gigantesca de computadores.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
